@@ -30,3 +30,9 @@ mask = list(range(500))
 x_test = x_test[:500]
 y_test = op.itemgetter(*mask)(y_test)
 
+model = KNearestNeighbor()
+model.train(x_train, y_train)
+
+y_test_pred = model.predict(x_test, k=1, num_loops=0)
+num = np.sum(y_test_pred == y_test)
+print(num/500)
