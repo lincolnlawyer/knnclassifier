@@ -20,3 +20,13 @@ print(len(y_train))
 temp = unpickle(path + files[5])
 x_test = temp[b'data']
 y_test = temp[b'labels']
+
+
+mask = list(range(5000))
+x_train = x_train[:5000]
+y_train = op.itemgetter(*mask)(y_train)
+
+mask = list(range(500))
+x_test = x_test[:500]
+y_test = op.itemgetter(*mask)(y_test)
+
