@@ -22,3 +22,11 @@ for j in k_choices:
 		model_accuracy[i] = (np.sum(y_val_pred == y_val))/len(y_val)
 	acc.append(np.sum(model_accuracy)/num_folds)
 	print(j, acc[-1])
+
+from matplotlib import pyplot as plt
+%matplotlib inline
+plt.plot(k_choices, acc)
+plt.xlabel('Values of k in k-Nearest Neighbors')
+plt.ylabel('Cross validation accuracy scores')
+plt.title('Hyperparamter tuning - to choose the best value of k in kNN')
+plt.show()
